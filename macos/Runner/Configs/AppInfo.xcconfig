@@ -8,7 +8,7 @@
 PRODUCT_NAME = threads_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.threadsApp
+PRODUCT_BUNDLE_IDENTIFIER = com.ajmal.threadsApp
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.ajmal. All rights reserved.

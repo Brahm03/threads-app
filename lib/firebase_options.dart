@@ -63,8 +63,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '863675084155',
     projectId: 'chatify-c485c',
     storageBucket: 'chatify-c485c.firebasestorage.app',
-    androidClientId: '863675084155-hoqj8mrmtdt2v2f4umm5n3b8vv8bndr3.apps.googleusercontent.com',
-    iosClientId: '863675084155-244b5a9joc37mp424c0mvjnbjv1mlock.apps.googleusercontent.com',
-    iosBundleId: 'com.example.threadsApp',
+    androidClientId:
+        '863675084155-hoqj8mrmtdt2v2f4umm5n3b8vv8bndr3.apps.googleusercontent.com',
+    iosClientId:
+        '863675084155-244b5a9joc37mp424c0mvjnbjv1mlock.apps.googleusercontent.com',
+    iosBundleId: 'com.ajmal.threadsApp',
   );
 }

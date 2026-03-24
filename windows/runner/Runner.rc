@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.ajmal" "\0"
             VALUE "FileDescription", "threads_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "threads_app" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 com.ajmal. All rights reserved." "\0"
             VALUE "OriginalFilename", "threads_app.exe" "\0"
             VALUE "ProductName", "threads_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

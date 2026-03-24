@@ -1,4 +1,4 @@
-package com.example.threads_app
+package com.ajmal.threads_app
 
 import io.flutter.embedding.android.FlutterActivity
 
