@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "863675084155",
+    "project_id": "chatify-c485c",
+    "storage_bucket": "chatify-c485c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863675084155:android:14e7626d077360ee04a1de",
+        "android_client_info": {
+          "package_name": "com.example.threads_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863675084155-23ilhktniqc1viq6qpul5ba03j1es7ht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUCBYz0h16Cts3SVojm5B_ryRYHR_76Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863675084155-23ilhktniqc1viq6qpul5ba03j1es7ht.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "863675084155-inugqfeob5kcsng7uocg45n64lnlqqce.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.abduGPT.chatify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
