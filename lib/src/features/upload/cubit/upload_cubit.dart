@@ -1,5 +1,9 @@
 import 'dart:io';
 
+// * Based in: Uzbekistan
+// * Registration -> google auth - latlong - 
+
+
 import 'package:appwrite/appwrite.dart';
 import 'package:bloc/bloc.dart';
 import 'package:image_picker/image_picker.dart';

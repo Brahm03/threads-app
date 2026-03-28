@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "863675084155-bf17h3rompciih10v15cdr7tag00mh2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ajmal.threads_app",
+            "certificate_hash": "40f7beffdc4b77c1a2ed6814190daca4f706730b"
+          }
+        },
+        {
           "client_id": "863675084155-23ilhktniqc1viq6qpul5ba03j1es7ht.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -31,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "863675084155-inugqfeob5kcsng7uocg45n64lnlqqce.apps.googleusercontent.com",
+              "client_id": "863675084155-244b5a9joc37mp424c0mvjnbjv1mlock.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.abduGPT.chatify"
+                "bundle_id": "com.ajmal.threads_app"
               }
             }
           ]
