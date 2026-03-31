@@ -8,6 +8,8 @@ import 'package:threads_app/src/features/auth/screens/permission_screen.dart';
 import 'package:threads_app/src/features/home/cubit/cubit/home_cubit.dart';
 import 'package:threads_app/src/features/home/screens/home_screen.dart';
 import 'package:threads_app/src/features/main/cubit/main_cubit.dart';
+import 'package:threads_app/src/features/reels/cubit/cubit/reel_cubit.dart';
+import 'package:threads_app/src/features/reels/screens/reel_screen.dart';
 import 'package:threads_app/src/features/upload/cubit/upload_cubit.dart';
 import 'package:toastification/toastification.dart';
 
@@ -22,6 +24,9 @@ void main() async {
       BlocProvider(create: (context) => AuthCubit()),
       BlocProvider(
         create: (context) => MainCubit(),
+      ),
+      BlocProvider(
+        create: (context) => ReelCubit(),
       ),
       BlocProvider(
         create: (context) => UploadCubit(),
@@ -41,7 +46,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ToastificationWrapper(
       child: MaterialApp(
-        home: HomeScreen(),
+        home: ReelScreen(),
       ),
     );
   }

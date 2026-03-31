@@ -10,6 +10,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.4.0
   appwrite: ^22.0.0
   bloc: ^9.2.0
+  chewie: ^1.13.0
   cloud_firestore: ^6.2.0
   equatable: ^2.0.8
   file_picker: ^10.3.10
@@ -25,6 +26,7 @@ dependencies:
   google_sign_in: ^7.2.0
   image_picker: ^1.2.1
   toastification: ^3.0.3
+  video_player: ^2.11.1
 
 dev_dependencies:
   flutter_test:
