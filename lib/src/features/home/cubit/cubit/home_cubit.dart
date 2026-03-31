@@ -6,30 +6,33 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeState()) {
-    getImages(2);
+    getImages(2, (){}); // * eng birinchi
   }
-  bool hasMore = true; // * 
-  QueryDocumentSnapshot? lastDocument; // * 
+  // * buidler -> cunstructor
 
-  Future<void> getImages(int limit) async {
+  bool hasMore = true; // *
+  QueryDocumentSnapshot? lastDocument; // *
+
+  Future<void> getImages(int limit, Function noMore) async {
     if (state.images.isEmpty) {
       emit(HomeState(status: HomeStatus.loading));
     }
     if (hasMore == false) {
+      noMore();
       return; // * close
     }
-    print('get dan oldin');
 
-    Query<Map<String, dynamic>> result = FirebaseFirestore.instance.collection('photos').limit(limit);
-    print('last document $lastDocument');
+    Query<Map<String, dynamic>> result =
+        FirebaseFirestore.instance.collection('photos').limit(limit);
     if (lastDocument != null) {
       result = result.startAfterDocument(lastDocument!);
     }
 
     final data = await result.get();
+    hasMore = data.docs.isNotEmpty;
 
     print('get dan kegin');
-    lastDocument = data.docs.last;
+    lastDocument = data.docs.isNotEmpty ? data.docs.last : null;
     hasMore = data.docs.isNotEmpty;
     final updatedImages = List<QueryDocumentSnapshot<Map>>.from(state.images)
       ..addAll(data.docs);

@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:threads_app/src/features/home/cubit/cubit/home_cubit.dart';
 import 'package:toastification/toastification.dart';
+// * usb debugging switch
+// * wifi debugging
+// * adb -> install
+// * port -> adb tcpip
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,18 +17,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isEnd = false;
-
   ScrollController scrollController = ScrollController();
+  bool showArrow = false;
 
   @override
   void initState() {
     super.initState();
     scrollController.addListener(() {
-      print('Scroll boshlandi ${scrollController.position.pixels}');
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
         isEnd = true;
-        BlocProvider.of<HomeCubit>(context).getImages(2);
+        setState(() {});
+      } else if (scrollController.position.pixels >
+          (scrollController.position.maxScrollExtent / 2)) {
+        showArrow = true;
+        setState(() {});
+      } else if (scrollController.position.pixels <
+          (scrollController.position.maxScrollExtent / 2)) {
+        showArrow = false;
         setState(() {});
       }
     });
@@ -34,6 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Visibility(
+          visible: showArrow,
+          child: IconButton.filled(
+              onPressed: () {
+                scrollController.animateTo(0.0,
+                    duration: Duration(milliseconds: 500), curve: Curves.ease);
+              },
+              icon: Icon(Icons.arrow_upward))),
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           if (state.status == HomeStatus.loading) {
@@ -45,11 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView.builder(
                   controller: scrollController,
                   padding: EdgeInsets.symmetric(horizontal: 24),
-                  itemCount: isEnd ? state.images.length + 1 : state.images.length,
+                  itemCount:
+                      isEnd ? state.images.length + 1 : state.images.length,
                   itemBuilder: (context, index) {
                     if (index == state.images.length) {
                       return Center(
-                        child: CircularProgressIndicator(),
+                        child: OutlinedButton(
+                            onPressed: () async {
+                              await context.read<HomeCubit>().getImages(2, () {
+                                HapticFeedback.vibrate();
+                                toastification.show(
+                                    type: ToastificationType.warning,
+                                    title: Text('No more left !'));
+                              });
+                              await HapticFeedback.vibrate();
+                            },
+                            child: Text('Load more')),
                       );
                     } else {
                       return Padding(
@@ -60,6 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             state.images[index].data()['image'],
                             height: 500,
                             width: double.infinity,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Center(
+                                child: Icon(Icons.image),
+                              );
+                            },
                             fit: BoxFit.cover,
                           ),
                         ),
